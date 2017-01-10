@@ -1,1 +1,0 @@
-Hi, I am TT. I am on my way to be a Data Scientist. =)
