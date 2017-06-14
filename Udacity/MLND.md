@@ -202,8 +202,34 @@ def avg_medal_count():
 [goog resources](https://bitbucket.org/hrojas/learn-pandas)
 
 
+## Lession10: Intro to Scikit-Learn
 
+```
+from sklearn import datasets # sklearn comes with a variety of preloaded datasets 
+from sklearn import metrics # calculate how well our model is doing
+from sklearn.linear_model import LinearRegression
 
+# Load the dataset
+housing_data = datasets.load_boston()
+linear_regression_model = LinearRegression()
+
+# Next, we can fit our Linear Regression model on our feature set to make predictions for our labels(the price of the houses). Here, housing_data.data is our feature set and housing_data.target are the labels we are trying to predict.
+
+linear_regression_model.fit(housing_data.data, housing_data.target)
+predictions = linear_regression_model.predict(housing_data.data)
+
+# Lastly, we want to check how our model does by comparing our predictions with the actual label values. Since this is a regression problem, we will use the r2 score metric. You will learn about the various classification and regression metrics in future lessons.
+
+score = metrics.r2_score(housing_data.target, predictions)
+```
+
+### Install Scikit-Learn
+If you've accidentally installed version v0.18 through pip, not to worry! Use the command below to downgrade your scikit-learn version to v0.17:
+
+`pip install --upgrade 'scikit-learn>=0.17,<0.18'`
+If you are using the Anaconda distribution of Python and have scikit-learn installed as version v0.18, you can also use the command below to downgrade your scikit-learn version to v0.17:
+
+`conda -c install scikit-learn=0.17`
 
 
 
