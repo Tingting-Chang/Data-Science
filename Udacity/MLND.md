@@ -232,7 +232,7 @@ If you are using the Anaconda distribution of Python and have scikit-learn insta
 `conda -c install scikit-learn=0.17`
 
 
-### Nature of Data
+## Lecture11: Nature of Data
 1. Numeric Data (A measurement or count; discrete and continuous)
 
 2. Categorical Data ( Represent characteristics; can take a numerical value but without mathematical meaning; ordinal data with rank)
