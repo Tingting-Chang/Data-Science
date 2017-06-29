@@ -232,6 +232,60 @@ If you are using the Anaconda distribution of Python and have scikit-learn insta
 `conda -c install scikit-learn=0.17`
 
 
+### Nature of Data
+1. Numeric Data (A measurement or count; discrete and continuous)
+
+2. Categorical Data ( Represent characteristics; can take a numerical value but without mathematical meaning; ordinal data with rank)
+
+3. Timeseries Data (Data collected via repeated measurements over time)
+
+
+#### Encoding using sklearn
+[ preprocessing module ](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing)
+
+##### [LabelEncoder ](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)
+
+```
+from sklearn import preprocessing
+
+# creating sample data
+sample_data = {'name': ['Ray', 'Adam', 'Jason', 'Varun', 'Xiao'],
+'health':['fit', 'slim', 'obese', 'fit', 'slim']}
+# storing sample data in the form of a dataframe
+data = pandas.DataFrame(sample_data, columns = ['name', 'health'])
+
+label_encoder = preprocessing.LabelEncoder()
+label_encoder.fit(data['health'])
+
+label_encoder.transform(data['health'])
+# array([0, 2, 1, 0, 2])
+
+# Or combine the fit and transform
+label_encoder.fit_transform(data['health'])
+
+##### [One-hot Encoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
+
+```
+from sklearn import preprocessing
+
+# creating sample data
+sample_data = {'name': ['Ray', 'Adam', 'Jason', 'Varun', 'Xiao'],
+'health':['fit', 'slim', 'obese', 'fit', 'slim']}
+# storing sample data in the form of a dataframe
+data = pandas.DataFrame(sample_data, columns = ['name', 'health'])
+
+# one-hot transformation in Pandas using [get_dummies](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.get_dummies.html)
+pandas.get_dummies(data['health'])
+
+# one-hot encoding in sklearn
+ohe = preprocessing.OneHotEncoder() # creating OneHotEncoder object
+label_encoded_data = label_encoder.fit_transform(data['health'])
+ohe.fit_transform(label_encoded_data.reshape(-1,1))
+```
+
+
+
+
 
 
 
